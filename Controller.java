@@ -3,24 +3,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
-        View view;
-        Model model;
 
-    public Controller( Model model, View view)
+        private Model model;
+        private JButton[][] buttons;
+
+    public Controller( Model model)
     {
         this.model = model;
-        this.view = view;
+        buttons = model.getButtonsMatrix();
         addActionListeners();
+
     }
 
-    private void addActionListeners() {
+
+
+    public void addActionListeners() {
 
         for(int row = 0; row<3 ;row++) {
             for(int column = 0; column<3 ;column++)
-                view.blocks[row][column].addActionListener(this);
+                buttons[row][column].addActionListener(this);
         }
 
-        view.reset.addActionListener(new ActionListener() {
+        model.getResetButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetGame();
             }
@@ -29,34 +33,35 @@ public class Controller implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        model.setSymbol();
+        model.setSymbolPlayer();
         model.decrementTurnsLeft();
+        model.setTurnText("'X': Player 1");
         if(model.turnsLeft%2 == 1) {
-            view.playerturn.setText("'X': Player 1");
+             model.setTurnText("'X': Player 1");
         } else{
-            view.playerturn.setText("'O': Player 2");
+            model.setTurnText("'O': Player 2");
         }
         ((JButton)e.getSource()).setText(model.userSymbol);
         ((JButton)e.getSource()).setEnabled(false);
         if (diagonalCheck() || columnCheck()){
-            view.playerturn.setText("Player "+model.player + " wins");
+            model.setTurnText("Player "+model.player + " wins");
             disableButtons();
         }
         else if(model.turnsLeft==0){
-            view.playerturn.setText("DRAW");
+            model.setTurnText("DRAW");
         }
     }
 
 
     public boolean diagonalCheck(){
-        if (view.blocks[0][0].getText() == view.blocks[1][1].getText() &&
-                view.blocks[1][1].getText() == view.blocks[2][2].getText() &&
-                view.blocks[0][0].getText()  != "")
+        if (buttons[0][0].getText() == buttons[1][1].getText() &&
+                buttons[1][1].getText() == buttons[2][2].getText() &&
+                buttons[0][0].getText()  != "")
             return(true);
 
-        if (view.blocks[2][0].getText() == view.blocks[1][1].getText() &&
-                view.blocks[1][1].getText() == view.blocks[0][2].getText() &&
-                view.blocks[2][0].getText()  != "")
+        if (buttons[2][0].getText() == buttons[1][1].getText() &&
+                buttons[1][1].getText() == buttons[0][2].getText() &&
+                buttons[2][0].getText()  != "")
             return(true);
         return(false);
     }
@@ -64,13 +69,13 @@ public class Controller implements ActionListener {
     public boolean columnCheck(){
             for (int i=0; i<3; i++)
             {
-                if (view.blocks[0][i].getText() == view.blocks[1][i].getText() &&
-                        view.blocks[1][i].getText() == view.blocks[2][i].getText() &&
-                        view.blocks[0][i].getText() != "")
+                if (buttons[0][i].getText() == buttons[1][i].getText() &&
+                        buttons[1][i].getText() == buttons[2][i].getText() &&
+                        buttons[0][i].getText() != "")
                     return (true);
-                if (view.blocks[i][0].getText() == view.blocks[i][1].getText()&&
-                        view.blocks[i][1].getText() == view.blocks[i][2].getText() &&
-                        view.blocks[i][0].getText() != "")
+                if (buttons[i][0].getText() == buttons[i][1].getText()&&
+                        buttons[i][1].getText() == buttons[i][2].getText() &&
+                        buttons[i][0].getText() != "")
                     return (true);
             }
             return(false);
@@ -79,7 +84,7 @@ public class Controller implements ActionListener {
     void disableButtons(){
         for(int i = 0;i<3;i++) {
             for(int j = 0;j<3;j++) {
-                view.blocks[i][j].setEnabled(false);
+                buttons[i][j].setEnabled(false);
             }
         }
     }
@@ -87,12 +92,12 @@ public class Controller implements ActionListener {
     public void resetGame() {
         for(int row = 0;row<3;row++) {
             for(int column = 0;column<3;column++) {
-                view.blocks[row][column].setText("");
-                view.blocks[row][column].setEnabled(true);
+                buttons[row][column].setText("");
+                buttons[row][column].setEnabled(true);
             }
         }
         model.player = 1;
         model.turnsLeft = 9;
-        view.playerturn.setText("Player 1 to play 'X'");
+        model.setTurnText("Player 1 to play 'X'");
     }
 }
