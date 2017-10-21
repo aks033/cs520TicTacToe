@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class View {
+class View {
 
     public JFrame gui = new JFrame("Tic Tac Toe");
     public JButton[][] blocks = new JButton[3][3];
@@ -40,6 +40,11 @@ public class View {
             }
         }
         gui.setVisible(true);
+
     }
 
+    public void setPlayerTurn(String message) {
+            playerturn.setText(message);
+
+    }
 }

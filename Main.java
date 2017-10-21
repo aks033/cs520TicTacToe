@@ -1,9 +1,7 @@
 public class Main {
     public static void main(String []args) {
-
-        Model TicTacToeModel = new Model();
         View TicTacToeView = new View();
-        //TicTacToeView.gui.setVisible(true);
-        Controller TicTacToeCont = new Controller(TicTacToeModel,TicTacToeView);
+        Model TicTacToeModel = new Model(TicTacToeView);
+        Controller TicTacToeCont = new Controller(TicTacToeModel);
     }
 }
