@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 
-class View {
+class View implements ViewInterface{
 
-    JButton[][] blocks = new JButton[3][3];
-    JButton reset = new JButton("Reset");
-    JTextArea playerturn= new JTextArea();
+    JButton[][] blocks = new JButton[3][3];// Buttons to play the game
+    JButton reset = new JButton("Reset");// Button to reset the game
+    JTextArea playerturn= new JTextArea();// To display text on the grid
 
     /**
      * View Class constructor which sets the basic Graphical user interface of the game using swing. It creates the
@@ -53,7 +53,7 @@ class View {
      * @param message: message to be displayed on the board
      */
 
-    void setPlayerTurn(String message) {
+    public void setPlayerTurn(String message) {
             playerturn.setText(message);
 
     }
