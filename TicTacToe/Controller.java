@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
 
-        public Model model;
-        public JButton[][] buttons;
+        Model model;
+        JButton[][] buttons;
 
-    public Controller( Model model)
+    Controller(Model model)
     {
         this.model = model;
         buttons = model.getButtonsMatrix();
@@ -17,9 +17,7 @@ public class Controller implements ActionListener {
 
     }
 
-
-
-    public void addActionListeners() {
+    private void addActionListeners() {
 
         for(int row = 0; row<3 ;row++) {
             for(int column = 0; column<3 ;column++)
@@ -45,7 +43,7 @@ public class Controller implements ActionListener {
         }
         ((JButton)e.getSource()).setText(model.userSymbol);
         ((JButton)e.getSource()).setEnabled(false);
-        if (diagonalCheck() || columnCheck()){
+        if (diagonalCheck() || columnRowCheck()){
             model.setTurnText("Player "+model.player + " wins");
             disableButtons();
         }
@@ -55,7 +53,7 @@ public class Controller implements ActionListener {
     }
 
 
-    public boolean diagonalCheck(){
+    private boolean diagonalCheck(){
         if (buttons[0][0].getText() == buttons[1][1].getText() &&
                 buttons[1][1].getText() == buttons[2][2].getText() &&
                 buttons[0][0].getText()  != "")
@@ -68,7 +66,7 @@ public class Controller implements ActionListener {
         return(false);
     }
 
-    public boolean columnCheck(){
+    private boolean columnRowCheck(){
             for (int i=0; i<3; i++)
             {
                 if (buttons[0][i].getText() == buttons[1][i].getText() &&
@@ -83,7 +81,8 @@ public class Controller implements ActionListener {
             return(false);
     }
 
-    void disableButtons(){
+
+    private void disableButtons(){
         for(int i = 0;i<3;i++) {
             for(int j = 0;j<3;j++) {
                 buttons[i][j].setEnabled(false);
@@ -91,7 +90,7 @@ public class Controller implements ActionListener {
         }
     }
 
-    public void resetGame() {
+    private void resetGame() {
         for(int row = 0;row<3;row++) {
             for(int column = 0;column<3;column++) {
                 buttons[row][column].setText("");
