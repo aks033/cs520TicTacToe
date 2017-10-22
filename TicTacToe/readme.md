@@ -36,10 +36,14 @@ Code Flow:
            accordingly the model informs the view to change the text on the GUI to show that its the next players turn.
         - If there is a win, the buttons get disabled and the board shows the message to show the player who has won.
         - If the match ends in a draw, the buttons get disabled and the text field says that the match ended in a draw situation.
-    -
-
-
-
+    -The reset button functionality when pressed resets the entire board to start a new match. This method has been implemented in the controller class and it resets all the information in the model and in turn clears the view.
 
 Design Choice:
-Instruction to run:
+Model:
+- All the data pertaining to the game resides in the model.
+- Model class interacts with the view to update it when there is a reset/win condition and also when the player turn changes.
+Controller:
+- Implemented the actionListener int the controller which accesses the buttons through the model class. The reason behind this choice was that the controller is not directly accessing the buttons and putting the actionListener in the view would violate the MVC principles as the view should just modify the display.
+- Implemented the reset functionality in the controller as reset is a control function which modifies the model and hence the view.
+View:
+View only deals with the contents to be displayed on the board.
