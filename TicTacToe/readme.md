@@ -22,13 +22,24 @@ Components:
 			setTurnText(String message): To interact with the view to modify the text on the grid according to player number.
 
 		Controller: Controller mediates the user interaction by changing the model and the model in turn changing the view.
-		addActionListeners(): Attaches action listener to each play button and the reset button.
-		actionPerformed(ActionEvent e): This method contains the logic of the game. It checks for the win by diagonal and column/row checks and accordingly changes the model and in turn the view.
-		diagonalCheck(): This method checks if there are same characters on either of the diagonals and returns a boolean accordingly.
-		columnRowCheck(): This method checks the columns and rows for same characters and accordingly return a boolean.
-		disableButtons(): This method disables the buttons which can happen in two events i.e either any of the players have won or the game ended in a draw.
-		resetGame():
+            addActionListeners(): Attaches action listener to each play button and the reset button.
+            actionPerformed(ActionEvent e): This method contains the logic of the game. It checks for the win by diagonal and column/row checks and accordingly changes the model and in turn the view.
+            diagonalCheck(): This method checks if there are same characters on either of the diagonals and returns a boolean accordingly.
+            columnRowCheck(): This method checks the columns and rows for same characters and accordingly return a boolean.
+            disableButtons(): This method disables the buttons which can happen in two events i.e either any of the players have won or the game ended in a draw.
+            resetGame(): Resets the buttons and other conditions like player, number of turns etc to their initial state. This is called on the click of the reset button.
+
+Code Flow:
+    - View creates the grid and buttons of the GUI.
+    -For every click on the button, the actionListener attached to the button calls its actionPerformed method to check the diagonals, columns and rows for any win.
+        - If there is no win, then the game continues until someone wins or the match ends in a draw. The model gets updated with the information of the next player and the number of turns decreases by 1.
+           accordingly the model informs the view to change the text on the GUI to show that its the next players turn.
+        - If there is a win, the buttons get disabled and the board shows the message to show the player who has won.
+        - If the match ends in a draw, the buttons get disabled and the text field says that the match ended in a draw situation.
+    -
 
 
-Flow:
+
+
 Design Choice:
+Instruction to run:
