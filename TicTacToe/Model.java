@@ -2,7 +2,7 @@ package TicTacToe;
 
 import javax.swing.*;
 
-class Model {
+class Model implements ModelInterface {
     private View view; //
     int turnsLeft;
     String userSymbol;
@@ -14,7 +14,7 @@ class Model {
         userSymbol = "X";
         player = 1;
     }
-    void setSymbolPlayer(){
+    public void setSymbolPlayer(){
         if (turnsLeft%2 == 1){
             userSymbol = "X";
             player = 1;
@@ -25,23 +25,23 @@ class Model {
         }
     }
 
-    void decrementTurnsLeft(){
+    public void decrementTurnsLeft(){
         turnsLeft--;
     }
 
 
 
-    JButton[][] getButtonsMatrix(){
+    public JButton[][] getButtonsMatrix(){
 
         return view.blocks;
     }
 
-    JButton getResetButton(){
+    public JButton getResetButton(){
 
         return view.reset;
     }
 
-    void setTurnText(String message){
+    public void setTurnText(String message){
 
         view.setPlayerTurn(message);
     }
