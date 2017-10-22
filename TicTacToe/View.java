@@ -13,7 +13,7 @@ class View {
 
     View(){
         JFrame gui = new JFrame("Tic Tac Toe");
-        gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gui.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         gui.setSize(new Dimension(500, 350));
         gui.setResizable(true);
 

@@ -2,19 +2,19 @@ package TicTacToe;
 
 import javax.swing.*;
 
-public class Model {
+class Model {
     private View view; //
-    public int turnsLeft;
-    public String userSymbol;
-    public int player;
+    int turnsLeft;
+    String userSymbol;
+    int player;
 
-    public Model(View view) {
+    Model(View view) {
         this.view = view;
         turnsLeft = 9;
         userSymbol = "X";
         player = 1;
     }
-    public void setSymbolPlayer(){
+    void setSymbolPlayer(){
         if (turnsLeft%2 == 1){
             userSymbol = "X";
             player = 1;
@@ -25,23 +25,23 @@ public class Model {
         }
     }
 
-    public void decrementTurnsLeft(){
+    void decrementTurnsLeft(){
         turnsLeft--;
     }
 
 
 
-    public JButton[][] getButtonsMatrix(){
+    JButton[][] getButtonsMatrix(){
 
         return view.blocks;
     }
 
-    public JButton getResetButton(){
+    JButton getResetButton(){
 
         return view.reset;
     }
 
-    public void setTurnText(String message){
+    void setTurnText(String message){
 
         view.setPlayerTurn(message);
     }
