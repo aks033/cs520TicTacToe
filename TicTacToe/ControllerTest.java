@@ -9,7 +9,7 @@ public class ControllerTest extends TestCase {
         TicTacToe.View view = new TicTacToe.View();
         TicTacToe.Model model = new TicTacToe.Model(view);
         boolean reset_check = true;
-        boolean false_flag = reset_check;
+        //boolean false_flag = reset_check;
         TicTacToe.Controller controller = new TicTacToe.Controller(model);
         controller.model.getResetButton().doClick();
         if(controller.model.getResetButton().isEnabled()){
@@ -17,14 +17,14 @@ public class ControllerTest extends TestCase {
                 for(int col=0;col<3;col++){
                     reset_check = Objects.equals(controller.buttons[row][col].getText(), "");
                     if (!reset_check){
-                        false_flag = false;
+                        reset_check = false;
                     }
                 }
 
 
             }
         }
-        assertEquals(true,false_flag);
+        assertEquals(true,reset_check);
     }
 
 }
