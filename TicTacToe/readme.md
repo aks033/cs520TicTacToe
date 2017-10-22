@@ -43,7 +43,7 @@ Model:
 - All the data pertaining to the game resides in the model.
 - Model class interacts with the view to update it when there is a reset/win condition and also when the player turn changes.
 Controller:
-- Implemented the actionListener int the controller which accesses the buttons through the model class. The reason behind this choice was that the controller is not directly accessing the buttons and putting the actionListener in the view would violate the MVC principles as the view should just modify the display.
+- Implemented the actionListener int the controller which accesses the buttons through the model class. The reason behind this choice was that the controller is not directly accessing the buttons and putting the actionListener in the view would violate the MVC principles as the view should only be changing the content on the GUI.
 - Implemented the reset functionality in the controller as reset is a control function which modifies the model and hence the view.
 View:
 View only deals with the contents to be displayed on the board.
