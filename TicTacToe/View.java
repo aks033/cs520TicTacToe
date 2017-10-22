@@ -1,13 +1,15 @@
+package TicTacToe;
+
 import javax.swing.*;
 import java.awt.*;
 
 
 class View {
 
-    public JFrame gui = new JFrame("Tic Tac Toe");
-    public JButton[][] blocks = new JButton[3][3];
-    public JButton reset = new JButton("Reset");
-    public JTextArea playerturn= new JTextArea();
+    private JFrame gui = new JFrame("Tic Tac Toe");
+    JButton[][] blocks = new JButton[3][3];
+    JButton reset = new JButton("Reset");
+    JTextArea playerturn= new JTextArea();
 
 
     public View(){

@@ -1,11 +1,13 @@
+package TicTacToe;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
 
-        private Model model;
-        private JButton[][] buttons;
+        public Model model;
+        public JButton[][] buttons;
 
     public Controller( Model model)
     {

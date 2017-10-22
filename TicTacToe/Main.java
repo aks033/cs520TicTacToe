@@ -1,7 +1,9 @@
+package TicTacToe;
+
 public class Main {
     public static void main(String []args) {
         View TicTacToeView = new View();
         Model TicTacToeModel = new Model(TicTacToeView);
-        Controller TicTacToeCont = new Controller(TicTacToeModel);
+        TicTacToe.Controller TicTacToeCont = new TicTacToe.Controller(TicTacToeModel);
     }
 }
