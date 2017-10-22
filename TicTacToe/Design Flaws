@@ -5,7 +5,7 @@ The original implementation of the code had the following flaws:
     of the code. Also, the methods and member variables of the class are public and can be accessed by anyone.
 
     Fix: In case a class would want to perform additional functions then that can be materialized by implementing
-    the interface. Final keyword used while defining the classes keeps anyone from modifying them directly.
+    the interface. Final keyword keeps anyone from modifying the classes directly.
 
 2) Code Duplication:
     Issue: The logic of the game has been repeated 9 times for each button and for each player separately which makes
