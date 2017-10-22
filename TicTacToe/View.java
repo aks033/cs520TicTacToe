@@ -10,7 +10,10 @@ class View {
     JButton reset = new JButton("Reset");
     JTextArea playerturn= new JTextArea();
 
-
+    /**
+     * View Class constructor which sets the basic Graphical user interface of the game using swing. It creates the
+     * basic grid and  buttons for the game and also sets the initial message to be displayed on the board.
+     */
     View(){
         JFrame gui = new JFrame("Tic Tac Toe");
         gui.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -44,6 +47,11 @@ class View {
         gui.setVisible(true);
 
     }
+
+    /**
+     * This method sets the message to be displayed on the game board based on the player turn and also the final results
+     * @param message: message to be displayed on the board
+     */
 
     void setPlayerTurn(String message) {
             playerturn.setText(message);
