@@ -6,13 +6,13 @@ import java.awt.*;
 
 class View {
 
-    private JFrame gui = new JFrame("Tic Tac Toe");
     JButton[][] blocks = new JButton[3][3];
     JButton reset = new JButton("Reset");
     JTextArea playerturn= new JTextArea();
 
 
-    public View(){
+    View(){
+        JFrame gui = new JFrame("Tic Tac Toe");
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gui.setSize(new Dimension(500, 350));
         gui.setResizable(true);
@@ -45,7 +45,7 @@ class View {
 
     }
 
-    public void setPlayerTurn(String message) {
+    void setPlayerTurn(String message) {
             playerturn.setText(message);
 
     }
