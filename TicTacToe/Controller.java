@@ -17,6 +17,10 @@ public class Controller implements ControllerInterface {
 
     }
 
+    /***
+     * Method to attach action listener to each play button of the grid and the reset button.
+     * If reset button is pressed, it resets the entire game.
+     */
     private void addActionListeners() {
 
         for(int row = 0; row<3 ;row++) {
@@ -31,6 +35,11 @@ public class Controller implements ControllerInterface {
         });
     }
 
+    /***
+     * This Method performs the logic of the game as and when the button is clicked on the GUI, it checks
+     * diagonals, columns and rows to check if a player has won or if the match was a draw.
+     * @param e: Action event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         model.setSymbolPlayer();
@@ -52,7 +61,10 @@ public class Controller implements ControllerInterface {
         }
     }
 
-
+    /***
+     * This methods checks if the three characters present on any of the diagonals are the same.
+     * @return : returns true if a diagonal check is met otherwise returns false
+     */
      public boolean diagonalCheck(){
         if (buttons[0][0].getText() == buttons[1][1].getText() &&
                 buttons[1][1].getText() == buttons[2][2].getText() &&
@@ -66,6 +78,10 @@ public class Controller implements ControllerInterface {
         return(false);
     }
 
+    /***
+     * This methods checks if the three characters present in any of the columns rows are the same.
+     * @return returns true if a column or row check is met otherwise returns false
+     */
     public boolean columnRowCheck(){
             for (int i=0; i<3; i++)
             {
@@ -81,7 +97,9 @@ public class Controller implements ControllerInterface {
             return(false);
     }
 
-
+    /***
+     * This method disables the buttons when the game gets over.
+     */
     public void disableButtons(){
         for(int i = 0;i<3;i++) {
             for(int j = 0;j<3;j++) {
@@ -90,6 +108,10 @@ public class Controller implements ControllerInterface {
         }
     }
 
+    /***
+     * This method resets the game when the reset button is asserted. It resets the data in the model and also
+     * clears the text associated with the buttons
+     */
     public void resetGame() {
         for(int row = 0;row<3;row++) {
             for(int column = 0;column<3;column++) {

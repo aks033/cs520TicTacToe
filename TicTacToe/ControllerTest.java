@@ -4,6 +4,9 @@ import junit.framework.TestCase;
 
 import java.util.Objects;
 
+/**
+ * This test checks if on clicking reset all the buttons are set to "".
+ */
 public class ControllerTest extends TestCase {
     public void testResetGame() throws Exception {
         TicTacToe.View view = new TicTacToe.View();
