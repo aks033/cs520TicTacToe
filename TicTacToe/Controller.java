@@ -48,7 +48,7 @@ public class Controller implements ControllerInterface {
             disableButtons();
         }
         else if(model.turnsLeft==0){
-            model.setTurnText("DRAW");
+            model.setTurnText("Draw");
         }
     }
 
