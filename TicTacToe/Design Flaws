@@ -5,7 +5,7 @@ The original implementation of the code had the following flaws:
     of the code. Also, the methods and member variables of the class are public and can be accessed by anyone.
 
     Fix: In case a class would want to perform additional functions then that can be materialized by implementing
-    the interface.////////
+    the interface. Final keyword used while defining the classes keeps anyone from modifying them directly.
 
 2) Code Duplication:
     Issue: The logic of the game has been repeated 9 times for each button and for each player separately which makes
@@ -26,3 +26,8 @@ The original implementation of the code had the following flaws:
 
     Fixed: Fixed this issue by making appropriate changes to the access modifier of each variable and by keeping
     just the methods public.
+
+5) No documentation: The code does not have much documentation to understand the code.
+
+6) Does not handle exceptions, Fix: Have handled exceptions using throws keyword.
+

@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 public interface ControllerInterface extends ActionListener {
     @Override
     void actionPerformed(ActionEvent e);
-    boolean diagonalCheck();
-    boolean columnRowCheck();
-    void disableButtons();
-    void resetGame();
+    boolean diagonalCheck()throws Exception;
+    boolean columnRowCheck()throws Exception;
+    void disableButtons()throws Exception;
+    void resetGame()throws Exception;
 
 }

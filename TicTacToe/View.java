@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-class View implements ViewInterface{
+final class View implements ViewInterface{
 
     JButton[][] blocks = new JButton[3][3];// Buttons to play the game
     JButton reset = new JButton("Reset");// Button to reset the game

@@ -3,9 +3,9 @@ package TicTacToe;
 import javax.swing.*;
 
 public interface ModelInterface {
-    void setSymbolPlayer();
-    void decrementTurnsLeft();
-    JButton[][] getButtonsMatrix();
-    JButton getResetButton();
-    void setTurnText(String message);
+    void setSymbolPlayer()throws Exception;
+    void decrementTurnsLeft()throws Exception;
+    JButton[][] getButtonsMatrix()throws Exception;
+    JButton getResetButton()throws Exception;
+    void setTurnText(String message)throws Exception;
 }
