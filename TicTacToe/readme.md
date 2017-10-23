@@ -1,12 +1,10 @@
 Design:
-
 Implemented a MVC design pattern to realize a Tic Tac Toe game model.
 	-The Model stores the information like the current player, number of turns left, the symbol for the current player. The model interacts with the view for the exchange of data.
 	-View controls the GUI of the game. It contains all the buttons required to play the game and also makes the game more interactive.
 	-Controller will translate the user interaction, with the help of action-listeners, to modify the data in the model. The logic of the game resides in this class.
 
 Components:
-
 	Classes: There are 4 classes i.e Model, View, Controller and Main which is the driver class.
 
 		View: The view sets the GUI framework in the constructor and set the texts to initial value. It also contains the following method
@@ -47,3 +45,7 @@ Controller:
 - Implemented the reset functionality in the controller as reset is a control function which modifies the model and hence the view.
 View:
 View only deals with the contents to be displayed on the board.
+
+How to run:
+Import the source files(from src folder)
+Build and run the files.
